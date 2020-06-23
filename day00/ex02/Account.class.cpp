@@ -36,7 +36,7 @@ Account::~Account(void) {
 
 void Account::makeDeposit(int deposit) {
   if (deposit < 0)
-    return ;
+    return;
   ++Account::_totalNbDeposits;
   Account::_totalAmount += deposit;
   Account::_displayTimestamp();
@@ -84,13 +84,6 @@ void Account::displayStatus(void) const {
             << "deposits:" << _nbDeposits << ';'
             << "withdrawals:" << _nbWithdrawals
             << std::endl;
-  return ;
-  std::cout << "\n=== ACCOUNT NO " << _accountIndex << " INFO ==="
-            << "\nAmount: " << _amount
-            << "\nNo Deposits: " << _nbDeposits
-            << "\nNo Withdrawals: " << _nbWithdrawals
-            << "\n========================="
-            << std::endl;
 }
 
 int Account::getNbAccounts(void) {
@@ -117,15 +110,6 @@ void Account::displayAccountsInfos(void) {
             << "deposits:" << Account::getNbDeposits() << ';'
             << "withdrawals:" << Account::getNbWithdrawals()
             << std::endl;
-  return ;
-  std::cout << "\n=== ACCOUNTS INFO ==="      
-            << "\nNo Accounts: " << Account::getNbAccounts()
-            << "\nTotal Amount: " << Account::getTotalAmount()
-            << "\nNo Deposits: " << Account::getNbDeposits()
-            << "\nNo Withdrawals: " << Account::getNbWithdrawals()
-            << "\nNo CheckAmount Calls: " << _nbCheckAmountCalls
-            << "\n====================="
-            << std::endl;
 }
 
 void Account::_displayTimestamp(void) {
@@ -135,8 +119,4 @@ void Account::_displayTimestamp(void) {
   now = std::time(0);
   localTime = std::localtime(&now);
   std::cout << std::put_time(localTime, "[%Y%m%d_%H%M%S]");
-  return ;
-  std::cout << '[' << localTime->tm_year + 1900  << localTime->tm_mon << localTime->tm_mday
-            << '_' << localTime->tm_hour << localTime->tm_min << localTime->tm_sec
-            << ']';
 }

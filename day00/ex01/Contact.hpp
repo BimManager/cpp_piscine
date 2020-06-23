@@ -1,7 +1,7 @@
 // Copyright 2020 kkozlov
 
-#ifndef _USERS_KIRILLKOZLOV_DEVELOPMENT_CPP_PISCINE_DAY00_EX01_CONTACT_H_
-#define _USERS_KIRILLKOZLOV_DEVELOPMENT_CPP_PISCINE_DAY00_EX01_CONTACT_H_
+#ifndef CONTACT_HPP_
+#define CONTACT_HPP_
 
 #include <string>
 
@@ -25,4 +25,4 @@ class Contact {
   Contact& operator=(const Contact& other);
 };
 
-#endif  // _USERS_KIRILLKOZLOV_DEVELOPMENT_CPP_PISCINE_DAY00_EX01_CONTACT_H_
+#endif  // CONTACT_HPP_

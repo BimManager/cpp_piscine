@@ -1,4 +1,8 @@
-#include "Contact.h"
+// Copyright 2020 kkozlov
+
+#include <string>
+
+#include "Contact.hpp"
 
 Contact::Contact(void) {
 }
@@ -6,9 +10,9 @@ Contact::Contact(void) {
 Contact::~Contact(void) {
 }
 
-void Contact::SetByIndex(int idx, std::string& data) {
+void Contact::SetByIndex(int idx, const std::string& data) {
   if (idx >= N_FIELDS)
-    return ;
+    return;
   this->fields_[idx] = data;
 }
 

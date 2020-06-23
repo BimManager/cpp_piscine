@@ -1,8 +1,10 @@
-// Author: kkozlov
+// Copyright 2020 kkozlov
+
 #include <iostream>
 #include <iomanip>
+#include <string>
 
-#include "Contact.h"
+#include "Contact.hpp"
 
 #define BOOK_SIZE 8
 #define MAX_CHARS 9
@@ -27,7 +29,7 @@ static void add_contact(Contact *contact) {
   while (++i < N_FIELDS) {
     std::cout << "Please enter your " << contact_fields[i] << ':' << std::endl;
     std::cin >> input;
-    contact->SetByIndex(i, input); 
+    contact->SetByIndex(i, input);
   }
 }
 
@@ -39,7 +41,7 @@ static void search_contact(Contact *phonebook, int n_entries) {
 
   if (0 == n_entries) {
     std::cout << "The phone book is empty.\n";
-    return ;
+    return;
   }
   while (42) {
     i = -1;
@@ -49,20 +51,21 @@ static void search_contact(Contact *phonebook, int n_entries) {
       while (++j < N_FIELDS_SEARCH) {
         output = phonebook[i].GetByIndex(j);
         if (output.size() > 10) {
-          output = output.substr(0,10);
+          output = output.substr(0, 10);
           output.replace(9, 1, ".");
         }
         std::cout << std::setw(10) << output << '|';
       }
       std::cout << std::endl;
     }
-    std::cout << "Please enter the index of the desired entry or type in 0 to quit:\n";
+    std::cout << "Please enter the index of the desired entry"
+        "or type in 0 to quit:\n";
     std::cin >> idx;
     if (0 == idx)
-      break ;
-    if (idx <= 0 || idx > n_entries + 1)
+      break;
+    if (idx <= 0 || idx > n_entries + 1) {
       std::cout << "Something has gone wrong. Try again.\n";
-    else {
+    } else {
       --idx;
       i = -1;
       while (++i < N_FIELDS)
@@ -71,7 +74,7 @@ static void search_contact(Contact *phonebook, int n_entries) {
   }
 }
 
-int	main(void) {
+int main(void) {
   Contact phonebook[BOOK_SIZE];
   int n_entries;
   std::string input;
@@ -86,14 +89,14 @@ int	main(void) {
     if (0 == input.compare(ADD_CMD)) {
       if (BOOK_SIZE == n_entries) {
         std::cout << "The book is full. No more contacts may be added.\n";
-        continue ; 
+        continue;
      }
       add_contact(&phonebook[n_entries++]);
-    }
-    else if (0 == input.compare(SEARCH_CMD))
+    } else if (0 == input.compare(SEARCH_CMD)) {
       search_contact(phonebook, n_entries);
-    else if (0 == input.compare(EXIT_CMD))
-      break ;
+    } else if (0 == input.compare(EXIT_CMD)) {
+      break;
+    }
   }
   return (0);
 }
