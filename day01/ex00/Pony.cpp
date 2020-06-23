@@ -1,5 +1,7 @@
 // Copyright 2020 kkozlov
 
+#include <string>
+
 #include "Pony.hpp"
 
 Pony::Pony(std::string name)

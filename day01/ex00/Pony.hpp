@@ -4,11 +4,10 @@
 #define PONY_H_
 
 #include <string>
-#include <iostream>
 
 class Pony {
  public:
-  Pony(std::string name);
+  explicit Pony(std::string name);
   ~Pony(void);
   void Gallop(void);
  private:
