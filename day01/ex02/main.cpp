@@ -1,21 +1,18 @@
 // Copyright 2020 kkozlov
 
-#include "ZombieEvent.hpp"
-
-#include <random>
 #include <iostream>
 #include <string>
+#include <ctime>
+
+#include "ZombieEvent.hpp"
 
 static std::string generateRandomName(void) {
-  std::random_device random;
-  int	len;
+  int len;
 
-  std::default_random_engine engine(random());
-  std::uniform_int_distribution<int> uniform_dist(65, 128);
-  len = uniform_dist(engine);
+  len = 4 + rand() % 6;
   std::string name(len, '0');
   while (len--) {
-    name[len] = static_cast<char>(uniform_dist(engine));
+    name[len] = 97 + rand() % 26;
   }
   return name;
 }
@@ -34,4 +31,3 @@ int main(void) {
   randomChump();
   return (0);
 }
-  
