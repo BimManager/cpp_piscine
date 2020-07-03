@@ -14,7 +14,7 @@ class Fixed {
   Fixed(const Fixed& other);
 
   Fixed& operator=(const Fixed& other);
-  friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
+  //  friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
   int GetRawBits(void) const;
   void SetRawBits(const int raw);
@@ -24,5 +24,7 @@ class Fixed {
   int rawValue_;
   static const int nbFracBits_;
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif  // DAY02_EX01_FIXED_H_
