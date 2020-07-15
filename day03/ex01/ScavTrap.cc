@@ -5,58 +5,58 @@
 #include <iostream>
 #include <string>
 
-#include "FragTrap.h"
+#include "ScavTrap.h"
 
-const char *FragTrap::availableAttacks_[] = {
+const char *ScavTrap::availableChallenges_[] = {
   "chopping their head off", "taking their trousers off",
   "taking the mickey out of them", "shooting them in the foot",
   "smashing their skull"
 };
 
-const unsigned FragTrap::nbAttacks_ = 5;
+const unsigned ScavTrap::nbChallenges_ = 5;
 
-FragTrap::FragTrap(const std::string &name)
+ScavTrap::ScavTrap(const std::string &name)
     : name_(name), hitPoints_(100), maxHitPoints_(100),
-      energyPoints_(50), level_(1), meleeAttackDamage_(30),
-      rangedAttackDamage_(20), armorDamageReduction_(5) {
-  std::cout << "FragTrap named " << name_ << " has been initialised.\n";
+      energyPoints_(50), level_(1), meleeAttackDamage_(20),
+      rangedAttackDamage_(15), armorDamageReduction_(3) {
+  std::cout << "ScavTrap named " << name_ << " has been initialised.\n";
 }
 
-FragTrap::FragTrap(const FragTrap &other) {
-  std::cout << "FragTrap named " << other.name_ << " has been copied.\n";
+ScavTrap::ScavTrap(const ScavTrap &other) {
+  std::cout << "ScavTrap named " << other.name_ << " has been copied.\n";
 }
 
-FragTrap::~FragTrap(void) {
-  std::cout << "FragTrap going by the name of "
+ScavTrap::~ScavTrap(void) {
+  std::cout << "ScavTrap going by the name of "
             << name_ << " has been destroyed.\n";
 }
 
-FragTrap &FragTrap::operator=(const FragTrap &rhs) {
+ScavTrap &ScavTrap::operator=(const ScavTrap &rhs) {
   if (this == &rhs) {
     return *this;
   }
-  std::cout << "FragTrap named " << name_
+  std::cout << "ScavTrap named " << name_
             << " has been reassigned to " << rhs.name_ << std::endl;
   return *this;
 }
 
-const std::string &FragTrap::Name(void) const {
+const std::string &ScavTrap::Name(void) const {
   return name_;
 }
 
-void FragTrap::RangedAttack(const std::string &target) const {
+void ScavTrap::RangedAttack(const std::string &target) const {
   std::cout << name_ << " attacks " << target
             << " at range, causing " << rangedAttackDamage_
             << " points of damage!\n";
 }
 
-void FragTrap::MeleeAttack(const std::string &target) const {
+void ScavTrap::MeleeAttack(const std::string &target) const {
   std::cout << name_ << " attacks " << target
             << " with a melee weapon, causing " << meleeAttackDamage_
             << " point of damage!\n";
 }
 
-void FragTrap::TakeDamage(unsigned amount) {
+void ScavTrap::TakeDamage(unsigned amount) {
   hitPoints_ -= amount;
   if (0 > hitPoints_) {
     hitPoints_ = 0;
@@ -65,7 +65,7 @@ void FragTrap::TakeDamage(unsigned amount) {
             << "; Hit Points: " << hitPoints_ << std::endl;
 }
 
-void FragTrap::BeRepaired(unsigned amount) {
+void ScavTrap::BeRepaired(unsigned amount) {
   hitPoints_ += amount;
   if (hitPoints_ > maxHitPoints_) {
     hitPoints_ = maxHitPoints_;
@@ -74,7 +74,7 @@ void FragTrap::BeRepaired(unsigned amount) {
             << "; Hit Points: " << hitPoints_ << std::endl;
 }
 
-void FragTrap::VaultHunterDotExe(const std::string &target) {
+void ScavTrap::ChallengeNewcomer(const std::string &target) {
   unsigned attackCost;
   unsigned now;
 
@@ -86,12 +86,12 @@ void FragTrap::VaultHunterDotExe(const std::string &target) {
     return;
   }
   energyPoints_ -= attackCost;
-  std::cout << name_ << " attacks " << target << " by "
-            << availableAttacks_[rand_r(&now) % nbAttacks_]
+  std::cout << name_ << " challenges " << target << " by "
+            << availableChallenges_[rand_r(&now) % nbChallenges_]
             << std::endl;
 }
 
-std::ostream &operator<<(std::ostream& os, const FragTrap& ft) {
+std::ostream &operator<<(std::ostream& os, const ScavTrap& ft) {
   os << ft.Name();
   return os;
 }
