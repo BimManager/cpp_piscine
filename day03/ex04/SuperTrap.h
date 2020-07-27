@@ -13,6 +13,7 @@ class SuperTrap : public FragTrap, public NinjaTrap {
   SuperTrap(const std::string &name);
   SuperTrap(const SuperTrap &other);
   ~SuperTrap(void);
+  
   SuperTrap& operator=(const SuperTrap &rhs);
 };
 

@@ -7,12 +7,12 @@
 
 #include "ClapTrap.h"
 
-ClapTrap::ClapTrap(void) {
-  name_ = "none";
+ClapTrap::ClapTrap(void)
+    : name_("none") {
 }
 
-ClapTrap::ClapTrap(const std::string &name) {
-  name_ = name;
+ClapTrap::ClapTrap(const std::string &name)
+    : name_(name) {
 }
 
 ClapTrap::ClapTrap(const std::string &name, unsigned hitPoints,
@@ -127,19 +127,15 @@ unsigned ClapTrap::ArmorDamageReduction(void) const {
   return armorDamageReduction_;
 }
 
-unsigned ClapTrap::Test(void) {
-  return 42;
-}
-
-std::ostream &operator<<(std::ostream& os, const ClapTrap& ft) {
-  os << "Name: " << ft.Name() << std::endl;
-  os << "Hit Points: " << ft.HitPoints() << std::endl;
-  os << "Max Hit Points: " << ft.MaxHitPoints() << std::endl;
-  os << "Energy Points: " << ft.EnergyPoints() << std::endl;
-  os << "Max Energy Points: " << ft.MaxEnergyPoints() << std::endl;
-  os << "Level: "<< ft.Level() << std::endl;
-  os << "Melee Attack Damage: " << ft.MeleeAttackDamage() << std::endl;
-  os << "Ranged Attack Damage: " << ft.RangedAttackDamage() << std::endl;
-  os << "Armor Damage Reduction: " << ft.ArmorDamageReduction() << std::endl;
+std::ostream &operator<<(std::ostream& os, const ClapTrap& in) {
+  os << "Name: " << in.Name() << std::endl;
+  os << "Hit Points: " << in.HitPoints() << std::endl;
+  os << "Max Hit Points: " << in.MaxHitPoints() << std::endl;
+  os << "Energy Points: " << in.EnergyPoints() << std::endl;
+  os << "Max Energy Points: " << in.MaxEnergyPoints() << std::endl;
+  os << "Level: "<< in.Level() << std::endl;
+  os << "Melee Attack Damage: " << in.MeleeAttackDamage() << std::endl;
+  os << "Ranged Attack Damage: " << in.RangedAttackDamage() << std::endl;
+  os << "Armor Damage Reduction: " << in.ArmorDamageReduction() << std::endl;
   return os;
 }

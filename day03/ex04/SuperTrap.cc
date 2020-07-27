@@ -6,8 +6,8 @@
 #include "SuperTrap.h"
 
 SuperTrap::SuperTrap(const std::string &name)
-    : ClapTrap(), NinjaTrap(name), FragTrap(5) {
-  hitPoints_ = FragTrap::HitPoints();
+    : ClapTrap(name), FragTrap(name), NinjaTrap(name) {
+  hitPoints_ = FragTrap::hitPoints_;
   maxHitPoints_ = FragTrap::maxHitPoints_;
   energyPoints_ = NinjaTrap::EnergyPoints();
   maxEnergyPoints_ = NinjaTrap::maxEnergyPoints_;
@@ -20,7 +20,7 @@ SuperTrap::SuperTrap(const std::string &name)
 }
 
 SuperTrap::SuperTrap(const SuperTrap &other)
-    : ClapTrap(other), FragTrap(other), NinjaTrap(other) {
+    : ClapTrap(other), FragTrap(other), NinjaTrap(other) { 
   std::cout << "SuperTrap named " << name_
             << " has been copied from "
             << other.name_;
@@ -39,5 +39,3 @@ SuperTrap& SuperTrap::operator=(const SuperTrap &rhs) {
             << rhs.Name() << std::endl;
   return *this;
 }
-
-

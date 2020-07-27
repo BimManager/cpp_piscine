@@ -10,12 +10,9 @@
 
 class FragTrap : public virtual ClapTrap {
  public:
-  FragTrap(void);
-  FragTrap(int);
   explicit FragTrap(const std::string &name);  
   FragTrap(const FragTrap &other);
   ~FragTrap(void);
-  FragTrap &operator=(const FragTrap &rhs);
   void VaultHunterDotExe(const std::string &target);
 
  private:

@@ -16,45 +16,8 @@ const char *FragTrap::availableAttacks_[] = {
 
 const unsigned FragTrap::nbAttacks_ = 5;
 
-FragTrap::FragTrap(void)
-    : //ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5) {
-    //    ClapTrap(name) {
-    ClapTrap() {
-  name_ = "none";
-  hitPoints_ = 100;
-  maxHitPoints_ = 100;
-  energyPoints_ = 100;
-  maxEnergyPoints_ = 100;
-  level_ = 1;
-  meleeAttackDamage_ = 30;
-  rangedAttackDamage_ = 20;
-  armorDamageReduction_ = 5;
-  std::cout << "FragTrap named " << name_ << " has been initialised.\n";
-}
-
-FragTrap::FragTrap(int)
-    : //ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5) {
-    //    ClapTrap(name) {
-    ClapTrap() {
-  name_ = "none";
-  hitPoints_ = 100;
-  maxHitPoints_ = 100;
-  energyPoints_ = 100;
-  maxEnergyPoints_ = 100;
-  level_ = 1;
-  meleeAttackDamage_ = 30;
-  rangedAttackDamage_ = 20;
-  armorDamageReduction_ = 5;
-  std::cout << "FragTrap named " << name_ << " has been initialised.\n";
-}
-
-
-
 FragTrap::FragTrap(const std::string &name)
-    : //ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5) {
-    //    ClapTrap(name) {
-    ClapTrap() {
-  name_ = name;
+    : ClapTrap(name) {
   hitPoints_ = 100;
   maxHitPoints_ = 100;
   energyPoints_ = 100;
@@ -64,6 +27,7 @@ FragTrap::FragTrap(const std::string &name)
   rangedAttackDamage_ = 20;
   armorDamageReduction_ = 5;
   std::cout << "FragTrap named " << name_ << " has been initialised.\n";
+  std::cout << hitPoints_ << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& other)
@@ -74,15 +38,6 @@ FragTrap::FragTrap(const FragTrap& other)
 FragTrap::~FragTrap(void) {
   std::cout << "FragTrap going by the name of "
             << name_ << " has been destroyed.\n";
-}
-
-FragTrap &FragTrap::operator=(const FragTrap &rhs) {
-  if (this == &rhs) {
-    return *this;
-  }
-  std::cout << "FragTrap named " << name_
-            << " has been reassigned to " << rhs.name_ << std::endl;
-  return *this;
 }
 
 void FragTrap::VaultHunterDotExe(const std::string &target) {

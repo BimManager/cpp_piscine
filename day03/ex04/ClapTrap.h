@@ -16,7 +16,7 @@ class ClapTrap {
            unsigned armorDamageReduction);
   ClapTrap(const ClapTrap &other);
   ~ClapTrap(void);
-  ClapTrap &operator=(const ClapTrap &rhs);
+  ClapTrap &operator=(const ClapTrap &rhs);  
   void RangedAttack(const std::string &target) const;
   void MeleeAttack(const std::string &target) const;
   void TakeDamage(unsigned amount);
@@ -30,7 +30,7 @@ class ClapTrap {
   unsigned MeleeAttackDamage(void) const;
   unsigned RangedAttackDamage(void) const;
   unsigned ArmorDamageReduction(void) const;
-  static unsigned Test(void);
+  
  protected:
   std::string name_;
   unsigned hitPoints_;
