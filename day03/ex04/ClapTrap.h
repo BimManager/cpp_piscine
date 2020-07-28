@@ -1,22 +1,22 @@
 // Copyright 2020 kkozlov
 
-#ifndef DAY03_EX02_CLAPTRAP_H__
-#define DAY03_EX02_CLAPTRAP_H__
+#ifndef DAY03_EX04_CLAPTRAP_H_
+#define DAY03_EX04_CLAPTRAP_H_
 
 #include <string>
 #include <iostream>
 
 class ClapTrap {
  public:
-  ClapTrap(void);
-  ClapTrap(const std::string &name);
+
+  explicit ClapTrap(const std::string &name);
   ClapTrap(const std::string &name, unsigned hitPoints, unsigned maxHitPoints,
            unsigned energyPoints, unsigned maxEnergyPoints, unsigned level,
            unsigned meleeAttackDamage, unsigned rangedAttackDamage,
            unsigned armorDamageReduction);
   ClapTrap(const ClapTrap &other);
   ~ClapTrap(void);
-  ClapTrap &operator=(const ClapTrap &rhs);  
+  ClapTrap &operator=(const ClapTrap &rhs);
   void RangedAttack(const std::string &target) const;
   void MeleeAttack(const std::string &target) const;
   void TakeDamage(unsigned amount);
@@ -30,8 +30,10 @@ class ClapTrap {
   unsigned MeleeAttackDamage(void) const;
   unsigned RangedAttackDamage(void) const;
   unsigned ArmorDamageReduction(void) const;
-  
+
  protected:
+  ClapTrap(void);
+
   std::string name_;
   unsigned hitPoints_;
   unsigned maxHitPoints_;
@@ -45,4 +47,4 @@ class ClapTrap {
 
 std::ostream &operator<<(std::ostream &os, const ClapTrap &ft);
 
-#endif  // DAY03_EX02_CLAPTRAP_H__
+#endif  // DAY03_EX04_CLAPTRAP_H_

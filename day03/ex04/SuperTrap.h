@@ -1,7 +1,7 @@
 // Copyright 2020 kkozlov
 
-#ifndef DAY03_EX04_NINJATRAP_H_
-#define DAY03_EX04_NINJATRAP_H_
+#ifndef DAY03_EX04_SUPERTRAP_H_
+#define DAY03_EX04_SUPERTRAP_H_
 
 #include <string>
 
@@ -10,11 +10,14 @@
 
 class SuperTrap : public FragTrap, public NinjaTrap {
  public:
-  SuperTrap(const std::string &name);
+  explicit SuperTrap(const std::string &name);
   SuperTrap(const SuperTrap &other);
   ~SuperTrap(void);
-  
+
   SuperTrap& operator=(const SuperTrap &rhs);
+
+  void RangedAttack(std::string const &target) const;
+  void MeleeAttack(std::string const &target) const;
 };
 
-#endif  // DAY03_EX04_NINJATRAP_H_
+#endif  // DAY03_EX04_SUPERTRAP_H_

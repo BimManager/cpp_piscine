@@ -15,5 +15,7 @@ int main(void) {
   std::cout << tiger << std::endl;
   std::cout << quack << std::endl;
   std::cout << sluggard << std::endl;
+  sluggard.MeleeAttack("Quack");
+  sluggard.RangedAttack("Tiget");
   return (0);
 }

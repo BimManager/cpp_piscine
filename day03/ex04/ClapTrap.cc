@@ -8,7 +8,7 @@
 #include "ClapTrap.h"
 
 ClapTrap::ClapTrap(void)
-    : name_("none") {
+    : name_("none"), level_(1) {
 }
 
 ClapTrap::ClapTrap(const std::string &name)
@@ -21,8 +21,8 @@ ClapTrap::ClapTrap(const std::string &name, unsigned hitPoints,
                    unsigned level, unsigned meleeAttackDamage,
                    unsigned rangedAttackDamage, unsigned armorDamageReduction)
     : name_(name), hitPoints_(hitPoints), maxHitPoints_(maxHitPoints),
-      energyPoints_(energyPoints), maxEnergyPoints_(maxEnergyPoints), level_(level),
-      meleeAttackDamage_(meleeAttackDamage),
+      energyPoints_(energyPoints), maxEnergyPoints_(maxEnergyPoints),
+      level_(level), meleeAttackDamage_(meleeAttackDamage),
       rangedAttackDamage_(rangedAttackDamage),
       armorDamageReduction_(armorDamageReduction) {
   std::cout << "ClapTrap named " << name_ << " has been initialised.\n";

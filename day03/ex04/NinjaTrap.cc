@@ -20,6 +20,15 @@ NinjaTrap::NinjaTrap(const std::string &name)
             << " has been initialised\n";
 }
 
+NinjaTrap::NinjaTrap(void)
+    : ClapTrap() {
+  energyPoints_ = 120;
+  maxEnergyPoints_ = 120;
+  meleeAttackDamage_ = 60;
+  std::cout << "NinjaTrap named " << name_
+            << " has been initialised\n";
+}
+
 NinjaTrap::NinjaTrap(const NinjaTrap &other)
     : ClapTrap(other) {
   std::cout << "NinjaTrap has been copied from "

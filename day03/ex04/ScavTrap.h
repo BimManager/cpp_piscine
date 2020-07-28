@@ -1,7 +1,7 @@
 // Copyright 2020 kkozlov
 
-#ifndef DAY03_EX02_SCAVTRAP_H__
-#define DAY03_EX02_SCAVTRAP_H__
+#ifndef DAY03_EX04_SCAVTRAP_H_
+#define DAY03_EX04_SCAVTRAP_H_
 
 #include <string>
 #include <iostream>
@@ -21,4 +21,4 @@ class ScavTrap : public ClapTrap {
   static const unsigned nbChallenges_;
 };
 
-#endif  // DAY03_EX02_SCAVTRAP_H_
+#endif  // DAY03_EX04_SCAVTRAP_H_

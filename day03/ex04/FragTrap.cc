@@ -30,6 +30,19 @@ FragTrap::FragTrap(const std::string &name)
   std::cout << hitPoints_ << std::endl;
 }
 
+
+FragTrap::FragTrap(void)
+    : ClapTrap() {
+  hitPoints_ = 100;
+  maxHitPoints_ = 100;
+  level_ = 1;
+  rangedAttackDamage_ = 20;
+  armorDamageReduction_ = 5;
+  std::cout << "FragTrap named " << name_ << " has been initialised.\n";
+  std::cout << hitPoints_ << std::endl;
+}
+
+
 FragTrap::FragTrap(const FragTrap& other)
     : ClapTrap(other) {
   std::cout << "FragTrap named " << other.name_ << " has been copied.\n";

@@ -1,7 +1,7 @@
 // Copyright 2020 kkozlov
 
-#ifndef DAY03_EX03_NINJATRAP_H_
-#define DAY03_EX03_NINJATRAP_H_
+#ifndef DAY03_EX04_NINJATRAP_H_
+#define DAY03_EX04_NINJATRAP_H_
 
 #include <string>
 
@@ -14,6 +14,9 @@ class NinjaTrap : public virtual ClapTrap {
   ~NinjaTrap(void);
   NinjaTrap& operator=(const NinjaTrap &rhs);
   void NinjaShoebox(const ClapTrap &target);
+
+ protected:
+  NinjaTrap(void);
 };
 
-#endif  // DAY03_EX03_NINJATRAP_H_
+#endif  // DAY03_EX04_NINJATRAP_H_
