@@ -6,7 +6,7 @@
 #include "PowerFist.h"
 
 PowerFist::PowerFist(void)
-    : AWeapon("PowerFist", 8, 50) {
+    : AWeapon("Power Fist", 8, 50) {
 }
 
 PowerFist::PowerFist(PowerFist const &other)

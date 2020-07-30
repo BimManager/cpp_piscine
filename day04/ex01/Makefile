@@ -3,7 +3,8 @@ CFLAGS := -Wall -Wextra -Werror -c -std=c++98 -w
 LD := clang++
 LDFLAGS := -arch x86_64 -e _main
 
-SRCS := AWeapon.cc PlasmaRifle.cc PowerFist.cc main.cc
+SRCS := AWeapon.cc PlasmaRifle.cc PowerFist.cc Enemy.cc \
+		SuperMutant.cc RadScorpion.cc Character.cc  main.cc
 OBJS := $(patsubst %.cc, %.o, $(SRCS))
 NAME := ex01
 

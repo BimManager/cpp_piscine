@@ -6,7 +6,7 @@
 #include "PlasmaRifle.h"
 
 PlasmaRifle::PlasmaRifle(void)
-    : AWeapon("PlasmaRifle", 5, 21) {
+    : AWeapon("Plasma Rifle", 5, 21) {
 }
 
 PlasmaRifle::PlasmaRifle(PlasmaRifle const &other)
