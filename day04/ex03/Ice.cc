@@ -13,7 +13,7 @@ Ice::Ice(Ice const &other)
   SetXP(other.XP());
 }
 
-Ice::~Ice(void) {
+Ice::~Ice(void) {  
 }
 
 Ice &Ice::operator=(Ice const &rhs) {
@@ -31,6 +31,6 @@ Ice *Ice::Clone(void) const {
 }
 
 void Ice::Use(ICharacter &target) {
-  std::cout << "* shoots an ice bolt at *"
-            << target.Name() << std::endl;
+  std::cout << "* shoots an ice bolt at "
+            << target.Name() << " *" << std::endl;
 };

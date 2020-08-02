@@ -3,7 +3,7 @@ CFLAGS := -Wall -Wextra -Werror -c -std=c++98 -w
 LD := clang++
 LDFLAGS := -arch x86_64 -e _main
 
-SRCS := AMateria.cc Ice.cc Character.cc main.cc
+SRCS := AMateria.cc Ice.cc Cure.cc Character.cc MateriaSource.cc main.cc
 OBJS := $(patsubst %.cc, %.o, $(SRCS))
 NAME := ex03
 
