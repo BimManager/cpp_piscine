@@ -1,5 +1,5 @@
 CC := clang++
-CFLAGS := -Wall -Wextra -Werror -c -std=c++98 -w
+CFLAGS := -Wall -Wextra -Werror -c -std=c++98 -w -g
 LD := clang++
 LDFLAGS := -arch x86_64 -e _main
 

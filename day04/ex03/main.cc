@@ -11,6 +11,11 @@ void myTests(void);
 
 int main(void) {
   IMateriaSource* src = new MateriaSource();
+  Ice *ice = new Ice();
+  delete ice;
+  Cure *cure = new Cure();
+  Cure *clone = cure->Clone();
+  delete clone;
   src->LearnMateria(new Ice());
   src->LearnMateria(new Cure());
   ICharacter* zaz = new Character("zaz");
@@ -24,7 +29,11 @@ int main(void) {
   zaz->Use(1, *bob);
   delete bob;
   delete zaz;
-  delete src;  
+  MateriaSource srcClone = MateriaSource();
+  srcClone = *dynamic_cast<MateriaSource *>(src);
+  delete src;
+  tmp = srcClone.CreateMateria("ice");
+  std::cout << tmp->Type() << std::endl;
   return 0;
 }
 
@@ -33,8 +42,7 @@ void myTests(void) {
   Character alex("Alex");
   Ice ice;
   Cure cure;
-  MateriaSource src;  
-
+  MateriaSource src;
   std::cout << john.Name() << std::endl;
   john.Equip(&ice);
   john.Use(0, alex);

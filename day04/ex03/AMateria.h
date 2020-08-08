@@ -11,9 +11,9 @@ class ICharacter;
 
 class AMateria {
  public:
-  AMateria(std::string const &type);
+  explicit AMateria(std::string const &type);
   AMateria(AMateria const &other);
-  ~AMateria(void);
+  virtual ~AMateria(void);
 
   AMateria &operator=(AMateria const &rhs);
 

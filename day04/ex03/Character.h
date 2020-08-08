@@ -22,7 +22,7 @@ class Character : public ICharacter {
   void Equip(AMateria *m);
   void Unequip(unsigned idx);
   void Use(unsigned idx, ICharacter &targert);
-  
+
  private:
   std::string name_;
   AMateria *inventory_[INVENTORY_CAPACITY];

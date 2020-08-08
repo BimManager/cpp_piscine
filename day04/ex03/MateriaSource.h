@@ -3,6 +3,8 @@
 #ifndef DAY04_EX03_MATERIASOURCE_H_
 #define DAY04_EX03_MATERIASOURCE_H_
 
+#include <string>
+
 #include "IMateriaSource.h"
 
 #define SOURCE_CAPACITY 4

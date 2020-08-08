@@ -14,7 +14,6 @@ Cure::Cure(Cure const &other)
 }
 
 Cure::~Cure(void) {
-  std::cout << "Bye" << std::endl;
 }
 
 Cure &Cure::operator=(Cure const &rhs) {
@@ -26,8 +25,7 @@ Cure &Cure::operator=(Cure const &rhs) {
 }
 
 Cure *Cure::Clone(void) const {
-  Cure *cure  = new Cure();
-  cure->SetXP(this->XP());
+  Cure *cure  = new Cure(*this);
   return cure;
 }
 

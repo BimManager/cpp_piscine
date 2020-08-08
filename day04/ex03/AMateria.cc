@@ -1,6 +1,7 @@
 // Copyright 2020 kkozlov
 
 #include <string>
+#include <iostream>
 
 #include "AMateria.h"
 
@@ -9,7 +10,7 @@ AMateria::AMateria(std::string const &type)
 }
 
 AMateria::AMateria(AMateria const &other)
-    : type_(other.Type()) {
+    : type_(other.Type()), xp_(other.XP()) {
 }
 
 AMateria::~AMateria(void) {
@@ -17,6 +18,7 @@ AMateria::~AMateria(void) {
 
 AMateria &AMateria::operator=(AMateria const &rhs) {
   type_ = rhs.Type();
+  xp_ = rhs.XP();
 }
 
 std::string const &AMateria::Type(void) const {
