@@ -21,6 +21,12 @@ class Bureaucrat {
   void IncrementGrade(void) throw();
   void DecrementGrade(void) throw();
 
+ private:
+  std::string const name_;
+  unsigned grade_;
+  static unsigned const kMinGrade_;
+  static unsigned const kMaxGrade_;
+
   class GradeTooLowException : public std::exception {
    public:
     char const *what(void) const throw();
@@ -30,12 +36,6 @@ class Bureaucrat {
    public:
     char const *what(void) const throw();
   };
-
- private:
-  std::string const name_;
-  unsigned grade_;
-  static unsigned const kMinGrade_;
-  static unsigned const kMaxGrade_;
 };
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &in);
