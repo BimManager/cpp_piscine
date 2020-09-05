@@ -26,8 +26,10 @@ Intern::~Intern(void) {}
 Form *Intern::MakeForm(std::string const &name, std::string const &target) {
   int i = -1;
   while (++i < 3) {
-    if (formNames_[i] && 0 == name.compare(formNames_[i]))
+    if (formNames_[i] && 0 == name.compare(formNames_[i])) {
+      std::cout << "Intern creates " << formNames_[i] << std::endl;
       return creators_[i](target);
+    }
   }
   std::cout << name << " has not been found.\nAvailable Forms:\n";
   i = -1;
