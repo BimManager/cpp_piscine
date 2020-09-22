@@ -5,7 +5,7 @@ LDFLAGS := -arch x86_64 -e _main
 
 SRCS := BrainFuck.cc main.cc
 OBJS := $(patsubst %.cc, %.o, $(SRCS))
-NAME := ex02
+NAME := ex03
 
 all : $(NAME)
 	@echo "Building...\nDone"
