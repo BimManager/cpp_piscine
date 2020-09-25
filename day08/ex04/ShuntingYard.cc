@@ -17,8 +17,26 @@ POPF ShuntingYard::opf_tab[TabSize] = {
 ShuntingYard::ShuntingYard(void) {}
 
 ShuntingYard::~ShuntingYard(void) {
-  if (instance_)
+  if (instance_) {
+    AToken *token;
+
+    while (!outputQueue_.empty()) {
+      token = outputQueue_.front();
+      outputQueue_.pop();
+      delete token;
+    }
+    while (!operatorStack_.empty()) {
+      token = operatorStack_.top();
+      operatorStack_.pop();
+      delete token;
+    }
+    while (!evalStack_.empty()) {
+      token = evalStack_.front();
+      evalStack_.pop_front();
+      delete token;
+    }
     delete instance_;
+  }
 }
 
 ShuntingYard *ShuntingYard::Create(void) {
@@ -48,8 +66,8 @@ void ShuntingYard::GeneratePostfix(std::list<AToken *> *tokens) {
       operatorStack_.push(token);
     } else {
       while ((topOp = dynamic_cast<Operator *>(operatorStack_.top()))) {
-        operatorStack_.pop();
         outputQueue_.push(topOp);
+        operatorStack_.pop();
       }
       delete operatorStack_.top();
       operatorStack_.pop();
@@ -76,6 +94,7 @@ void ShuntingYard::PrintPostfix(void) {
       std::cout << ' ';
   }
   outputQueue_.pop();
+  std::cout << std::endl;
 }
 
 void ShuntingYard::PrintEvalStack(void) {
@@ -114,7 +133,6 @@ void ShuntingYard::ComputePostfix(void) {
       std::cout << std::left << std::setw(13);
       num1->SetValue(((*opf_tab[static_cast<int>(op->GetValue())])(
           num1->GetValue(), num2->GetValue())));
-
       delete num2;
       evalStack_.push_back(num1);
     }

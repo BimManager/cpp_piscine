@@ -4,6 +4,8 @@
 #define ATOKEN_H_
 
 #include <string>
+#include <iostream>
+
 
 class AToken {
  public:

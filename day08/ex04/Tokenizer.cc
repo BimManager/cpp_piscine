@@ -34,14 +34,12 @@ int Tokenizer::ParseExpr(char const *expr, std::list<AToken *> **list) {
     while (isspace(*expr))
       ++expr;
     if (std::isdigit(*expr) || ('-' == *expr && std::isdigit(*(expr + 1)))) {
-      if (ParseNumber(expr, &value)) {
+      if (ParseNumber(expr, &value))
         return 1;
-      } else {
-        if (lastToken && dynamic_cast<Number *>(lastToken))
-          return 1;
-        (*list)->push_back(new Number(value));
-        lastToken = (*list)->back();
-      }
+      if (lastToken && dynamic_cast<Number *>(lastToken))
+        return 1;
+      (*list)->push_back(new Number(value));
+      lastToken = (*list)->back();
       while (isnumber(*expr) || '-' == *expr)
         ++expr;
     }
